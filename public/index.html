@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BBounce</title>
+</head>
+<style>
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  #home-page.hide,
+  #main-page.hide,
+  #video-con1.hide,
+  #video-con2.hide,
+  #seat-con.hide,
+  #camera-con.hide,
+  #mic-con.hide {
+    display: none;
+  }
+
+  #home-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #home-page div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #home-page div:nth-of-type(1) {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  #home-page div:nth-of-type(2) {
+    margin-top: 8%;
+    margin-bottom: 40px;
+  }
+
+  #main-page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #video-con1 {
+    display: inline-block;
+    box-sizing: border-box;
+    background: cadetblue;
+  }
+
+  #video-con2 {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 40%;
+    height: 40%;
+    background: wheat;
+  }
+
+  .operate-con {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    z-index: 3;
+  }
+
+  #seat-con,
+  #camera-con,
+  #mic-con,
+  #leave-con {
+    margin: 0 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #c2c2c2;
+    opacity: 0.9;
+  }
+
+  .operate-con img {
+    width: 80%;
+    height: 80%;
+  }
+
+  #leave-con img {
+    width: 60%;
+    height: 60%;
+  }
+
+  #seat-con img {
+    width: 50%;
+    height: 50%;
+  }
+
+  #video-con1 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    background: #FF9D0E;
+  }
+
+  #video-con2 {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+  }
+</style>
+
+<body>
+  <div id="app"></div>
+  <div id="home-page">
+    <h1>Loading</h1>
+  </div>
+  <div id="main-page" class="hide">
+    <div id="video-con1"></div>
+    <div id="video-con2" class="hide"></div>
+    <div class="operate-con">
+      <div id="leave-con">
+        <img onclick="leaveRoom()" src="./img/icon_phone.png" alt="phone" />
+      </div>
+      <div id="camera-con" onclick="enableCamera()">
+        <svg fill="#FF9D0E" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 487 487" style="enable-background:new 0 0 487 487;" xml:space="preserve">
+          <g>
+            <g>
+              <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z
+                M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9
+                v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z
+                M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z
+                M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div id="mic-con" onclick="enableMic()">
+        <svg fill="#FF9D0E" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 470 470" style="enable-background:new 0 0 470 470;" xml:space="preserve">
+          <g>
+            <path d="M235,302.296c47.177,0,85.423-38.245,85.423-85.423V85.423C320.423,38.245,282.177,0,235,0s-85.423,38.245-85.423,85.423
+              v131.451C149.577,264.051,187.823,302.296,235,302.296z" />
+            <path d="M350.423,136.148v30h15v50.726c0,71.915-58.508,130.423-130.423,130.423s-130.423-58.507-130.423-130.423v-50.726h15v-30
+              h-45v80.726C74.577,300.273,138.551,369,220,376.589V440h-90.444v30h210.889v-30H250v-63.411
+              c81.449-7.589,145.423-76.317,145.423-159.716v-80.726H350.423z" />
+          </g>
+        </svg>
+      </div>
+      <div id="seat-con" class="hide">
+        <img onclick="seatHandle()" src="./img/icon_cohost.png" alt="seat" />
+      </div>
+    </div>
+  </div>
+  <script src="./ZegoExpressManager.js"></script>
+  <!-- <script src="./local-config.js"></script> -->
+  <script src="./index.js"></script>
+</body>
+
+</html>
