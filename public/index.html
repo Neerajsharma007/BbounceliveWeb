@@ -130,6 +130,11 @@
     right: 0px;
     z-index: 2;
   }
+  #leave-con, #mic-con, #camera-con{
+    cursor: pointer;
+    color: #FF9D0E;
+    font-weight: bolder;
+  }
 </style>
 
 <body>
@@ -138,14 +143,18 @@
     <h1>Loading</h1>
   </div>
   <div id="main-page" class="hide">
-    <div id="video-con1"></div>
+    <div id="video-con1">
+      <div class="">
+        Watching: <span id="watchingCon">0</span>
+      </div>
+    </div>
     <div id="video-con2" class="hide"></div>
     <div class="operate-con">
-      <div id="leave-con">
-        <img onclick="leaveRoom()" src="./img/icon_phone.png" alt="phone" />
+      <div id="leave-con" onclick="leaveRoom()">
+        Stop
       </div>
       <div id="camera-con" onclick="enableCamera()">
-        <svg fill="#FF9D0E" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 487 487" style="enable-background:new 0 0 487 487;" xml:space="preserve">
+        <!-- <svg fill="#FF9D0E" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 487 487" style="enable-background:new 0 0 487 487;" xml:space="preserve">
           <g>
             <g>
               <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z
@@ -155,10 +164,11 @@
                 M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z" />
             </g>
           </g>
-        </svg>
+        </svg> -->
+        Preview
       </div>
       <div id="mic-con" onclick="enableMic()">
-        <svg fill="#FF9D0E" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 470 470" style="enable-background:new 0 0 470 470;" xml:space="preserve">
+        <!-- <svg fill="#FF9D0E" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 470 470" style="enable-background:new 0 0 470 470;" xml:space="preserve">
           <g>
             <path d="M235,302.296c47.177,0,85.423-38.245,85.423-85.423V85.423C320.423,38.245,282.177,0,235,0s-85.423,38.245-85.423,85.423
               v131.451C149.577,264.051,187.823,302.296,235,302.296z" />
@@ -166,7 +176,8 @@
               h-45v80.726C74.577,300.273,138.551,369,220,376.589V440h-90.444v30h210.889v-30H250v-63.411
               c81.449-7.589,145.423-76.317,145.423-159.716v-80.726H350.423z" />
           </g>
-        </svg>
+        </svg> -->
+        Mute
       </div>
       <div id="seat-con" class="hide">
         <img onclick="seatHandle()" src="./img/icon_cohost.png" alt="seat" />

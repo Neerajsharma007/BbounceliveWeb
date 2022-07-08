@@ -10,7 +10,7 @@ module.exports = {
     port: 3000,
     historyApiFallback: true
   },
-  mode: 'development',
+  mode: 'production',
   entry: './src/ZegoExpressManager.ts',
   module: {
     rules: [{

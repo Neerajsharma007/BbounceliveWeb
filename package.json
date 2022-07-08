@@ -1,16 +1,16 @@
 {
-  "name": "easy_example_web",
+  "name": "ZEGOCLOUDLiveStream",
   "version": "1.0.0",
-  "description": "easy example web",
+  "description": "",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
     "dev": "webpack serve",
     "build:dev": "webpack",
-    "build": "mode=production webpack"
+    "build": "webpack"
   },
-  "author": "zegocloud",
+  "author": "Mrityunjay",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.9",

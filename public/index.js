@@ -56,6 +56,7 @@ function generateToken() {
     }
   ).then((res) => res.json());
 }
+
 function initSDK() {
   ZegoExpressManager.shared.createEngine(config.appID, config.serverURL);
   ZegoExpressManager.shared.onRoomUserUpdate((updateType, userList, roomID) => {
@@ -65,6 +66,9 @@ function initSDK() {
       userList,
       roomID
     );
+    const watchingCon = document.querySelector("#watchingCon");
+    watchingCon.innerHTML= userList.length;
+
     userList.forEach((userID) => {
       if (updateType === "ADD") {
         if (data.hostID === userID) {
@@ -232,14 +236,14 @@ function down() {
 function enableCamera() {
   const result = ZegoExpressManager.shared.enableCamera(!data.cameraEnable);
 
-  const camSvg = document.getElementById('Capa_1');
+  const camCon = document.getElementById('camera-con');
 
   if(data.cameraEnable){
-    camSvg.style.fill = "#555";
+    camCon.style.color = "#555";
 
     console.log("Muted");
   }else{
-    camSvg.style.fill = "#FF9D0E";
+    camCon.style.color = "#FF9D0E";
 
     console.log("Non Muted");
   }
@@ -249,13 +253,13 @@ function enableCamera() {
 function enableMic() {
   result = ZegoExpressManager.shared.enableMic(!data.micEnable);
 
-  const microphoSvg = document.getElementById('Layer_1');
+  const microphoCon = document.getElementById('mic-con');
 
   if(data.micEnable){
-    microphoSvg.style.fill = "#555";
+    microphoCon.style.color = "#555";
     console.log("Muted");
   }else{
-    microphoSvg.style.fill = "#FF9D0E";
+    microphoCon.style.color = "#FF9D0E";
     console.log("Non Muted");
   }
 
@@ -280,15 +284,13 @@ function triggerPageView(page) {
 }
 function triggerRenderViewCon1(show, videoDom) {
 
-  console.log(videoDom);
-
   const renderViewCon1 = document.querySelector("#video-con1");
   if (show) {
-    renderViewCon1.innerHTML = "";
+    // renderViewCon1.innerHTML = `<span>Watching: ${noOfUsers}</span>`;
     renderViewCon1.appendChild(videoDom);
     renderViewCon1.classList.remove("hide");
   } else {
-    renderViewCon1.innerHTML = "";
+    // renderViewCon1.innerHTML = "";
     renderViewCon1.classList.add("hide");
   }
 }
