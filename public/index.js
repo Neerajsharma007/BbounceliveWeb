@@ -240,7 +240,7 @@ function enableCamera() {
 
     console.log("Muted");
   }else{
-    camCon.style.color = "#FF9D0E";
+    camCon.style.color = "#fff";
 
     console.log("Non Muted");
   }
@@ -256,7 +256,7 @@ function enableMic() {
     microphoCon.style.color = "#555";
     console.log("Muted");
   }else{
-    microphoCon.style.color = "#FF9D0E";
+    microphoCon.style.color = "#fff";
     console.log("Non Muted");
   }
 

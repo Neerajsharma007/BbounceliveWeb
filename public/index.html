@@ -76,7 +76,7 @@
   }
 
   .operate-con {
-    height: 13vh;
+    height: 10vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -84,7 +84,7 @@
     align-items: center;
     position: absolute;
     bottom: 0px;
-    background: #FF9D0E;
+    background: #444;
     z-index: 3;
   }
 
@@ -123,7 +123,8 @@
     height: 86%;
     position: relative;
     z-index: 1;
-    background: #FF9D0E;
+    background: #444;
+    padding-top: 10px;
   }
 
   #video-con2 {
@@ -134,12 +135,24 @@
   }
   #leave-con, #mic-con, #camera-con{
     cursor: pointer;
-    color: #FF9D0E;
+    color: #fff;
     font-weight: bolder;
   }
   video::-webkit-media-controls-panel {
     display: flex !important;
     opacity: 1 !important;
+    height: 100%;
+  }
+  .watchContainerCon{
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3%;
+  }
+
+  .logo{
+    width: 4vw;
   }
 </style>
 
@@ -150,8 +163,13 @@
   </div>
   <div id="main-page" class="hide">
     <div id="video-con1">
-      <div class="">
-        Watching: <span id="watchingCon">0</span>
+      <div class="watchContainerCon">
+        <div class="">
+          <img class="logo" src="./img/logo.jpeg" alt="">
+        </div>
+        <div class="">
+          Watching: <span id="watchingCon">0</span>
+        </div>
       </div>
     </div>
     <div id="video-con2" class="hide"></div>
@@ -160,7 +178,7 @@
         Stop
       </div>
       <div id="camera-con" onclick="enableCamera()">
-        <!-- <svg fill="#FF9D0E" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 487 487" style="enable-background:new 0 0 487 487;" xml:space="preserve">
+        <!-- <svg fill="#444" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 487 487" style="enable-background:new 0 0 487 487;" xml:space="preserve">
           <g>
             <g>
               <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z
@@ -174,7 +192,7 @@
         Preview
       </div>
       <div id="mic-con" onclick="enableMic()">
-        <!-- <svg fill="#FF9D0E" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 470 470" style="enable-background:new 0 0 470 470;" xml:space="preserve">
+        <!-- <svg fill="#444" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 470 470" style="enable-background:new 0 0 470 470;" xml:space="preserve">
           <g>
             <path d="M235,302.296c47.177,0,85.423-38.245,85.423-85.423V85.423C320.423,38.245,282.177,0,235,0s-85.423,38.245-85.423,85.423
               v131.451C149.577,264.051,187.823,302.296,235,302.296z" />
