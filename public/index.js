@@ -268,7 +268,7 @@ function enableMic() {
 function leaveRoom() {
   ZegoExpressManager.shared.leaveRoom();
 
-  window.location = "https://b-bounce.com/live.php";
+  window.location = `https://b-bounce.com/live_closed.php?roomID=${config.roomID}`;
 }
 // Dom
 function triggerPageView(page) {
