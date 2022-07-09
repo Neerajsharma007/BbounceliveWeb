@@ -10,6 +10,10 @@
     "build:dev": "webpack",
     "build": "webpack"
   },
+   "engines": {
+        "node": "16.16.0",
+        "npm": "8.13.2"
+      },
   "author": "Mrityunjay",
   "license": "ISC",
   "devDependencies": {
