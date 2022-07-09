@@ -265,7 +265,14 @@ function enableMic() {
 function leaveRoom() {
   ZegoExpressManager.shared.leaveRoom();
 
-  window.location = `https://b-bounce.com/live_closed.php?roomID=${config.roomID}`;
+  if(role === "host"){
+    window.location = `https://b-bounce.com/live_closed.php?roomID=${config.roomID}`;
+  }else{
+    triggerPageView("home");
+    const homePageView = document.querySelector("#home-page");
+    homePageView.innerHTML = "<h1>Disconnected from Stream</h1>"
+  }
+
 }
 // Dom
 function triggerPageView(page) {
