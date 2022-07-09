@@ -14,12 +14,10 @@ setTimeout(() => {
   }else if(role == "audience"){
     joinLiveAsAudience();
   }
-}, 1000);
+}, 2000);
 // window.onload = () => {
 //
 // }
-
-
 
 const now = new Date().getTime();
 const config = {
@@ -141,12 +139,16 @@ function initSDK() {
 
   // Check
   ZegoExpressManager.shared.checkWebRTC();
+  console.warn("From Outside", role);
+  if(role === "host"){
+    console.warn("From Inside", role);
+
+  }
+}
+
+async function joinLiveAsHost() {
   ZegoExpressManager.shared.checkCamera();
   ZegoExpressManager.shared.checkMicrophone();
-
-}
-async function joinLiveAsHost() {
-
   data.isHost = true;
 
   const roomID = config.roomID
@@ -179,12 +181,7 @@ async function joinLiveAsAudience() {
   // config.roomID = roomID;
 
   const token = (await generateToken()).token;
-  if (!token) {
-    alert(
-      "Please read the readme document first to configure the token correctly！"
-    );
-    return;
-  }
+
   await ZegoExpressManager.shared.joinRoom(
     roomID,
     token,
@@ -284,6 +281,9 @@ function triggerPageView(page) {
 }
 function triggerRenderViewCon1(show, videoDom) {
 
+  videoDom.controls = true;
+  videoDom.muted = true;
+
   const renderViewCon1 = document.querySelector("#video-con1");
   if (show) {
     // renderViewCon1.innerHTML = `<span>Watching: ${noOfUsers}</span>`;
@@ -295,6 +295,10 @@ function triggerRenderViewCon1(show, videoDom) {
   }
 }
 function triggerRenderViewCon2(show, videoDom) {
+
+  videoDom.controls = true;
+  videoDom.muted = true;
+
   const renderViewCon2 = document.querySelector("#video-con2");
   if (show) {
     renderViewCon2.innerHTML = "";
